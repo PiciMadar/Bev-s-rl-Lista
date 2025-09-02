@@ -1,0 +1,19 @@
+header{
+    text-align: center;
+    padding: 15px;
+}
+
+footer{
+    text-align: center;
+    padding: 10px;
+}
+
+footer h5{
+    font-size: 0.9em;
+}
+
+footer h6{
+    font-size: 0.75em;
+    font-weight: bold;
+
+}

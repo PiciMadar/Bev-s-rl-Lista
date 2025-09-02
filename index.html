@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bevásárlólista App</title>
+
+
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/style.css">    
+
+</head>
+<body data-bs-theme="dark">
+    <div class="container">
+        <header>
+            <h1>Bevásárlólista Applikáció</h1>
+            <h3>13.A jóvoltábol</h3>
+        </header>
+        <main>
+
+            <div class="Urlap">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          Műveletek
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="form-floating mb-3">
+                                <input type="text" min="0" class="form-control" id="nameF" placeholder="Termek">
+                                <label for="nameF">Termék</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" min="0" class="form-control" id="countF" placeholder="Mennyi">
+                                <label for="countF">Mennyiség</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="prizeF" placeholder="EgyAr">
+                                <label for="prizeF">Egységár (Ft)</label>
+                            </div>
+                            <button type="button" id="AddButton" class="btn btn-success mb-3">Hozzáadás</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+
+            <div class="Tablazat">
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tétel</th>
+                            <th class="text-end">Egység ár</th>
+                            <th class="text-end">Mennyiség</th>
+                            <th class="text-end">Össz.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemsList">
+                        <!--Dinamikusan feltöltött-->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Összesen:</td>
+                            <td class="text-end" ><strong id="sumLbl">0</strong> Ft</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </main>
+        <footer>
+            <h5>Bajai SZC Türr István Technikum</h5>
+            <h6 class="text-body-tertiary">2025</h6>
+        </footer>
+    </div>    
+
+    <script src="./JS/bootstrap.min.js"></script>
+    <script src="./JS/app.js"></script>
+</body>
+</html>
