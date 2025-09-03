@@ -17,3 +17,48 @@ footer h6{
     font-weight: bold;
 
 }
+
+.container{
+    width: 50%;
+}
+.form-floating{
+    width: 32%;
+}
+.accordion-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#AddButton{
+    align-items: center;
+}
+
+@media only screen and (max-width: 1360px){
+    .container{
+        width: 60%;
+    }
+    .accordion-body{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .form-floating{
+        width: 49%;
+    }
+    #elsof{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .container{
+        width: 80%;
+    }
+    .accordion-body{
+        flex-wrap: nowrap;
+        display: block;
+    }
+    .form-floating{
+        width: 100%
+    }
+}

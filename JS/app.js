@@ -24,6 +24,7 @@ AddButton.addEventListener("click", () =>
 
       RefreshTable()
       clearForm()
+      save()
      }
 );
 
@@ -49,16 +50,21 @@ function RefreshTable(){
             let td3 = document.createElement('td')
             let td4 = document.createElement('td')
             let td5 = document.createElement('td')
+            let td6 = document.createElement('td')
+            let torolG = document.createElement('button')
 
             td1.innerHTML = i+1 + '.'
             td2.innerHTML = Items[i].name;
             td3.innerHTML = Items[i].price + ' Ft';
             td4.innerHTML = Items[i].count + ' db';
             td5.innerHTML = Items[i].sum + ' Ft';
+            torolG.innerHTML = "X"
 
             td3.classList.add('text-end')
             td4.classList.add('text-end')
             td5.classList.add('text-end')
+            td6.classList.add('text-center')
+            torolG.classList.add('btn' ,'btn-danger', 'text-end')
 
             Ossz += Items[i].sum
 
@@ -67,11 +73,35 @@ function RefreshTable(){
             tr.appendChild(td3);
             tr.appendChild(td4);
             tr.appendChild(td5);
+            tr.appendChild(td6)
+            td6.appendChild(torolG)
 
+            torolG.addEventListener("click", () => {deleteItem(i)})
             ItemsList.appendChild(tr);
         }
         sumLabel.innerHTML = Ossz;
 }
 
+function deleteItem(index){
+  if(confirm("Biztosan szeretnéd törölni a "+ (index +1) + ". számú elemet?" ))
+  {
+    Items.splice(index, 1)
+    RefreshTable()
+    save()
+  }
+  alert("Sikeres törlés")
+}
 
+function save(){
+    localStorage.setItem('bevLista', JSON.stringify(Items))
+}
+
+function load(){
+  if(localStorage.getItem('bevLista')){
+    Items = JSON.parse(localStorage.getItem('bevLista'))
+  }
+}
+
+load()
+RefreshTable();
 clearForm();

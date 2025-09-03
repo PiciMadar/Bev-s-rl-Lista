@@ -28,7 +28,7 @@
                       </h2>
                       <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating mb-3" id="elsof">
                                 <input type="text" min="0" class="form-control" id="nameF" placeholder="Termek">
                                 <label for="nameF">Termék</label>
                             </div>
@@ -40,8 +40,10 @@
                                 <input type="number" class="form-control" id="prizeF" placeholder="EgyAr">
                                 <label for="prizeF">Egységár (Ft)</label>
                             </div>
-                            <button type="button" id="AddButton" class="btn btn-success mb-3">Hozzáadás</button>
+
+                            
                         </div>
+                        <button type="button" id="AddButton" class="btn btn-success mb-3">Hozzáadás</button>
                       </div>
                     </div>
                   </div>
@@ -54,9 +56,10 @@
                         <tr>
                             <th>#</th>
                             <th>Tétel</th>
-                            <th class="text-end">Egység ár</th>
+                            <th class="text-end" id="EgysCim">Egys. ár</th>
                             <th class="text-end">Mennyiség</th>
                             <th class="text-end">Össz.</th>
+                            <th class="text-center">Műveletek</th>
                         </tr>
                     </thead>
                     <tbody id="itemsList">
@@ -66,6 +69,7 @@
                         <tr>
                             <td colspan="4">Összesen:</td>
                             <td class="text-end" ><strong id="sumLbl">0</strong> Ft</td>
+                            <td></td>
                         </tr>
                     </tfoot>
                 </table>
