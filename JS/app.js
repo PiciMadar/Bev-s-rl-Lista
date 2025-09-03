@@ -4,10 +4,11 @@ let priceField = document.getElementById("prizeF");
 let AddButton = document.getElementById("AddButton");
 let sumLabel = document.getElementById("sumLbl");
 let ItemsList = document.getElementById("itemsList")
+let TermekDL = document.getElementById("TermekData")
 
 
 let Items = [];
-
+let Elozmenyek = []
 
 AddButton.addEventListener("click", () =>
      {
@@ -15,6 +16,18 @@ AddButton.addEventListener("click", () =>
         alert("Valami nem stimmel")
         return
       }
+
+      let optionData = document.createElement('option')
+      optionData.value = nameField.value
+      let idx = Elozmenyek.findIndex(item => item.name == nameField.value)
+      if (idx == -1){
+        Elozmenyek.push({
+          name2: nameField.value,
+          price2: Number(priceField.value)
+        })
+      }
+
+
       Items.push({
         name: nameField.value,
         price: Number(priceField.value),
@@ -22,12 +35,16 @@ AddButton.addEventListener("click", () =>
         sum: priceField.value * countField.value
       })
 
+      
       RefreshTable()
       clearForm()
       save()
-     }
+    
+     }  
 );
 
+nameField.addEventListener('selectionchange', (item) => {
+})
 
 
 function clearForm(){
@@ -94,11 +111,15 @@ function deleteItem(index){
 
 function save(){
     localStorage.setItem('bevLista', JSON.stringify(Items))
+    localStorage.setItem('elozLista', JSON.stringify(Elozmenyek))
 }
 
 function load(){
   if(localStorage.getItem('bevLista')){
     Items = JSON.parse(localStorage.getItem('bevLista'))
+  }
+  if(localStorage.getItem('elozLista')){
+    Items = JSON.parse(localStorage.getItem('elozLista'))
   }
 }
 
